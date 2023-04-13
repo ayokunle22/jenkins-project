@@ -1,8 +1,5 @@
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y \
-    apache2 \
-    && rm -rf /var/lib/apt/lists/*
+FROM python:3.11.2
 
-COPY index.html /var/www/html/
+COPY . .
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD [ "python3", "webapp3.py" ]
